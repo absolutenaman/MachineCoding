@@ -1,11 +1,19 @@
 import React from 'react';
-import {FlatList, Image, StyleSheet, View} from "react-native";
+import {FlatList, Image, StyleSheet, TouchableOpacity, View} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 const ImageRoller = ({images}) => {
+    const navigation = useNavigation();
     return (<View style={styles.container}>
-            <FlatList columnWrapperStyle={styles.container} numColumns={3} data={images} renderItem={(item, index, images) => {
-                return (<Image key={item?.item?.links?.[0]?.href}  height={200} width={200} src={item?.item?.links?.[0]?.href}/>)
-            }}></FlatList>
+            <FlatList columnWrapperStyle={styles.container} numColumns={3} data={images}
+                      renderItem={(item, index, images) => {
+                          return (<TouchableOpacity onPress={() => {
+                              navigation.navigate("/pictureData", {
+                                  data: item?.item
+                              })
+                          }}><Image key={item?.item?.links?.[0]?.href} height={200} width={200}
+                                    src={item?.item?.links?.[0]?.href}/></TouchableOpacity>)
+                      }}></FlatList>
         </View>
     )
 }
