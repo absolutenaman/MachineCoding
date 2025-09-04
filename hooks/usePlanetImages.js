@@ -3,7 +3,9 @@ import {useEffect, useState} from 'react';
 
 const usePlanetImages = (queryParameter) => {
     const [imagesData, setImagesData] = useState({});
-
+    if(queryParameter.length===0){
+        queryParameter="moon";
+    }
     useEffect(() => {
         fetch(`https://images-api.nasa.gov/search?q=${queryParameter}`).then((res) => res.json()).then((result) => {
             setImagesData(result?.collection?.items);

@@ -1,6 +1,7 @@
 import React from 'react';
-import {FlatList, Image, StyleSheet, TouchableOpacity, View} from "react-native";
+import {Button, FlatList, Image, StyleSheet, TouchableOpacity, View} from "react-native";
 import {useNavigation} from "@react-navigation/native";
+import {storage} from "../mmkv/mmkv";
 
 const ImageRoller = ({images}) => {
     const navigation = useNavigation();
@@ -12,7 +13,12 @@ const ImageRoller = ({images}) => {
                                   data: item?.item
                               })
                           }}><Image key={item?.item?.links?.[0]?.href} height={200} width={200}
-                                    src={item?.item?.links?.[0]?.href}/></TouchableOpacity>)
+                                    src={item?.item?.links?.[0]?.href}/>
+                              <Button title={"Add to favourites"} onPress={() => {
+                                  storage.set("images",JSON.stringify(item))
+                                  console.log(storage.getString('images'))
+                              }}/>
+                          </TouchableOpacity>)
                       }}></FlatList>
         </View>
     )

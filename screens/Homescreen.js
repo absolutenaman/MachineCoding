@@ -12,10 +12,8 @@ export default function HomeScreen() {
             <Search setPlanetName={setPlanetName}/>
             <Button title={"FavouritesSection"} onPress={() => {
                 return (
-                    <View>
-                        <ImageRoller images={imagesData.slice(0,3)}>
-                        </ImageRoller>
-                    </View>
+                  <>
+                  </>
                 )
             }}/>
             {
