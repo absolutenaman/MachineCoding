@@ -8,13 +8,49 @@ import Tabs from "../screens/Tabs";
 const Stack = createStackNavigator()
 
 const App = () => {
-    const tabsData = [{
-        Title: "Tab 1",
-        Child: [{Title: "Child Tab 1.1"}, {Title: "Child Tab 1.2"}]
-    }, {
-        Title: "Tab 2",
-        Child: [{Title: "Child Tab 2.1"}, {Title: "Child Tab 2.2"}]
-    }]
+    const tabsData = [
+        {
+            title: "Tab 1",
+            content: "Content of Tab 1",
+            children: [
+                {
+                    title: "Sub Tab 1.1",
+                    content: "Content of Sub Tab 1.1",
+                    children: [
+                        {
+                            title: "Sub Tab 1.1.1",
+                            content: "Content of Sub Tab 1.1.1",
+                        },
+                    ],
+                },
+                {
+                    title: "Sub Tab 1.2",
+                    content: "Content of Sub Tab 1.2",
+                    children: [
+                        {
+                            title: "Sub Tab 1.1.2",
+                            content: "Content of Sub Tab 1.1.2",
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            title: "Tab 2",
+            content: "Content of Tab 2",
+        },
+        {
+            title: "Tab 3",
+            content: "Content of Tab 3",
+            children: [
+                {
+                    title: "Sub Tab 3.1",
+                    content: "Content of Sub Tab 3.1",
+                },
+            ],
+        },
+    ];
+
 
     return (
         <Stack.Navigator initialRouteName={"/Tabs"}>
