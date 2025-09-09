@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import DataPolling from "../screens/DataPolling";
 import LazyLoading from "../screens/LazyLoading";
 import Tabs from "../screens/Tabs";
+import InfiniteScrolling from "../screens/InfiniteScrolling";
 
 const Stack = createStackNavigator()
 
@@ -53,12 +54,14 @@ const App = () => {
 
 
     return (
-        <Stack.Navigator initialRouteName={"/Tabs"}>
+        <Stack.Navigator initialRouteName={"/InfiniteScrolling"}>
             <Stack.Screen name="/pictureData" component={ImageData} options={{headerShown: false}}></Stack.Screen>
             <Stack.Screen name="/Home" component={HomeScreen} options={{headerShown: false}}></Stack.Screen>
             <Stack.Screen name="/DataPolling" component={DataPolling} options={{headerShown: false}}></Stack.Screen>
             <Stack.Screen name={"/LazyLoading"} component={LazyLoading} options={{headerShown: false}}></Stack.Screen>
             <Stack.Screen name={"/Tabs"} component={() => Tabs({tabsData})}
+                          options={{headerShown: false}}></Stack.Screen>
+            <Stack.Screen name={"/InfiniteScrolling"} component={InfiniteScrolling}
                           options={{headerShown: false}}></Stack.Screen>
         </Stack.Navigator>
     )

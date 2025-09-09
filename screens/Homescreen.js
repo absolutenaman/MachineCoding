@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import usePlanetImages from "../hooks/usePlanetImages";
 import ImageRoller from "../components/ImageRoller";
 import Search from "../components/Search";
