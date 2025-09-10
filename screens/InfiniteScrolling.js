@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { FlatList, Text, View} from "react-native";
+import {FlatList, Image, Text, View} from "react-native";
 import axios from "axios";
 
 const InfiniteScrolling = () => {
@@ -18,7 +18,13 @@ const InfiniteScrolling = () => {
                 <FlatList data={response} onEndReached={()=>{
                     setOffSet((prevState)=>prevState+10)
                 }}  renderItem={({item,index}) => {
-                    return <Text key={index} style={{fontSize: 40}}>{item?.title}</Text>
+                    return (
+                        <View>
+
+                        <Text key={index} style={{fontSize: 20}}>{item?.title}</Text>
+                            <Image src={item?.images[0]} width={400} height={400} />
+                        </View>
+                            )
                 }}/>
             </View>
     );
