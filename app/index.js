@@ -6,6 +6,7 @@ import LazyLoading from "../screens/LazyLoading";
 import Tabs from "../screens/Tabs";
 import InfiniteScrolling from "../screens/InfiniteScrolling";
 import CancelSlowApi from "../screens/CancelSlowApi";
+import StopWatch from "../screens/StopWatch";
 
 const Stack = createStackNavigator()
 
@@ -55,7 +56,7 @@ const App = () => {
 
 
     return (
-        <Stack.Navigator initialRouteName={"/CancelSlowApi"}>
+        <Stack.Navigator initialRouteName={"/StopWatch"}>
             <Stack.Screen name="/pictureData" component={ImageData} options={{headerShown: false}}></Stack.Screen>
             <Stack.Screen name="/Home" component={HomeScreen} options={{headerShown: false}}></Stack.Screen>
             <Stack.Screen name="/DataPolling" component={DataPolling} options={{headerShown: false}}></Stack.Screen>
@@ -65,6 +66,8 @@ const App = () => {
             <Stack.Screen name={"/InfiniteScrolling"} component={InfiniteScrolling}
                           options={{headerShown: false}}></Stack.Screen>
             <Stack.Screen name={"/CancelSlowApi"} component={CancelSlowApi}
+                          options={{headerShown: false}}></Stack.Screen>
+            <Stack.Screen name={"/StopWatch"} component={StopWatch}
                           options={{headerShown: false}}></Stack.Screen>
         </Stack.Navigator>
     )
